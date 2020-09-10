@@ -20,10 +20,10 @@ import _curry3 from './internal/_curry3.js';
  *
  *      R.until(R.gt(R.__, 100), R.multiply(2))(1) // => 128
  */
-var until = _curry3(function until(pred, fn, init) {
+var until = _curry3(async function until(pred, fn, init) {
   var val = init;
-  while (!pred(val)) {
-    val = fn(val);
+  while (!await pred(val)) {
+    val = await fn(val);
   }
   return val;
 });
